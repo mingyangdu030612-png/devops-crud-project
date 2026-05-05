@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Task Manager</h1>
+      <p class="subtitle">Simple CRUD app for DevOps deployment practice</p>
+
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Enter a new task..." />
+        <button onclick="addTask()">Add Task</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <script>
+    async function loadTasks() {
+      const response = await fetch("/tasks");
+      const tasks = await response.json();
+
+      const taskList = document.getElementById("taskList");
+      taskList.innerHTML = "";
+
+      tasks.forEach(task => {
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+          <span>${task.title}</span>
+          <div>
+            <button class="edit" onclick="editTask(${task.id}, '${task.title}')">Edit</button>
+            <button class="delete" onclick="deleteTask(${task.id})">Delete</button>
+          </div>
+        `;
+
+        taskList.appendChild(li);
+      });
+    }
+
+    async function addTask() {
+      const input = document.getElementById("taskInput");
+      const title = input.value.trim();
+
+      if (!title) return;
+
+      await fetch("/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title })
+      });
+
+      input.value = "";
+      loadTasks();
+    }
+
+    async function editTask(id, oldTitle) {
+      const newTitle = prompt("Edit task:", oldTitle);
+
+      if (!newTitle) return;
+
+      await fetch(`/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title: newTitle })
+      });
+
+      loadTasks();
+    }
+
+    async function deleteTask(id) {
+      await fetch(`/tasks/${id}`, {
+        method: "DELETE"
+      });
+
+      loadTasks();
+    }
+
+    loadTasks();
+  </script>
+</body>
+</html>
