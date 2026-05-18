@@ -1,43 +1,74 @@
-# DevOps CRUD Project
+# DevOps CRUD Project – Student Management System
 
-## Project Description
+## Project Overview
 
-This project is a Node.js CRUD application for managing tasks.
+This project is a simple full-stack CRUD (Create, Read, Update, Delete) web application developed for DevOps deployment practice.
 
-It is containerized using Docker, connected to PostgreSQL, deployed with Kubernetes using Minikube, and validated with load testing.
+The application theme is a **Student Attendance System**, where users can:
 
-## Technologies
+* Add/Edit/Delete student records
+* Store data using PostgreSQL
 
-* Node.js
-* Express.js
-* PostgreSQL
-* Docker
-* Docker Compose
-* Kubernetes
-* Minikube
-* k6
+The project demonstrates the integration of:
 
-## Features
+* Node.js + Express.js backend
+* PostgreSQL database
+* Docker containerization
+* Docker Compose multi-container setup
+* Kubernetes deployment with Minikube
+* Basic load testing
 
-* Create tasks
-* Read tasks
-* Update tasks
-* Delete tasks
-* Health check endpoint
+---
 
-## Project Structure
+# Technologies Used
 
-project/
+| Technology     | Purpose                       |
+| -------------- | ----------------------------- |
+| Node.js        | Backend runtime               |
+| Express.js     | REST API framework            |
+| PostgreSQL     | Database storage              |
+| Docker         | Containerization              |
+| Docker Compose | Multi-container orchestration |
+| Kubernetes     | Container orchestration       |
+| Minikube       | Local Kubernetes cluster      |
+| Git & GitHub   | Version control               |
+
+---
+
+# Project Structure
+
+```text
+DEVOPS-CRUD-PROJECT
+│
 ├── app/
+│   ├── index.html
+│   ├── style.css
+│   ├── server.js
+│   ├── package.json
+│   └── package-lock.json
+│
 ├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+│
 ├── tests/
-├── screenshots/
+│   └── loadtest.js
+│   └── package-lock.json
+│   └── package.json
 ├── Dockerfile
-├── docker-compose.yaml
-└── README.md
+├── docker-compose.yml
+├── init.sql
+├── README.md
+└── .gitignore
+```
 
-## Assumptions
+---
 
-* The application runs on port 3000.
-* PostgreSQL is used as the database.
-* Minikube is used as the Kubernetes environment.
+# Author
+
+Du Mingyang
+
+GitHub Repository:
+
+[https://github.com/mingyangdu030612-png/devops-crud-project]
+
