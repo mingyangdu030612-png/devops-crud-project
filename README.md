@@ -4,7 +4,7 @@
 
 This project is a simple full-stack CRUD (Create, Read, Update, Delete) web application developed for DevOps deployment practice.
 
-The application theme is a **Student Attendance System**, where users can:
+The application theme is a **Student Management System**, where users can:
 
 * Add/Edit/Delete student records
 * Store data using PostgreSQL
@@ -20,7 +20,7 @@ The project demonstrates the integration of:
 
 ---
 
-# Technologies Used
+## Technologies Used
 
 | Technology     | Purpose                       |
 | -------------- | ----------------------------- |
@@ -35,7 +35,7 @@ The project demonstrates the integration of:
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 DEVOPS-CRUD-PROJECT
@@ -64,11 +64,11 @@ DEVOPS-CRUD-PROJECT
 
 ---
 
-# Author
+## Author
 
 Du Mingyang
 
 GitHub Repository:
 
-[https://github.com/mingyangdu030612-png/devops-crud-project]
+https://github.com/mingyangdu030612-png/devops-crud-project
 
